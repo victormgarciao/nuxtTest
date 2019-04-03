@@ -22,7 +22,7 @@ export default {
   data: function () {
     const defaultStyles = {
       color: '#333',
-      alignSelf: 'left',
+      textAlign: 'left',
       padding: '10px',
       fontFamily: 'inherit',
       fontSize:'1em',
