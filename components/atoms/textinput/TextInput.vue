@@ -30,6 +30,18 @@ export default {
       type: Object,
       default: () => {},
     },
+    customErrorStyle: {
+      type: Object,
+      default: () => {},
+    },
+    customWarningStyle: {
+      type: Object,
+      default: () => {},
+    },
+    customSuccessStyle: {
+      type: Object,
+      default: () => {},
+    },
     status: {
       type: String,
       default: () => STATUS.DEFAULT,
@@ -78,6 +90,9 @@ export default {
       const defaultWarningStyle = {
         border: '2px solid orange',
       };
+      const defaultSuccessStyle = {
+        border: '2px solid green',
+      };
 
       const hoverStyle = {
         ...defaultHoverStyle,
@@ -99,12 +114,18 @@ export default {
         ...this.customWarningStyle,
       };
 
+      const successStyle = {
+        ...defaultSuccessStyle,
+        ...this.customSuccessStyle,
+      };
+
       const renderedStyles = {
         ...defaultStyle,
         ...(this.isFocus === true) ? focusStyle : {},
         ...(this.isHover === true) ? hoverStyle : {},
         ...(this.status === STATUS.WARNING) ? warningStyle : {},
         ...(this.status === STATUS.ERROR) ? errorStyle : {},
+        ...(this.status === STATUS.SUCCESS) ? successStyle : {},
       };
 
       return renderedStyles;

@@ -1,43 +1,34 @@
 <template>
   <div class="inputsDisplay">
     <Label> Default text input </Label>
-    <Input />
+    <TextInput />
     <Label> Input with placeholder </Label>
-    <Input placeholder="tupi tupi"/>
+    <TextInput placeholder="tupi tupi"/>
     <Label> Password input </Label>
-    <Input aver="quepasa" type="password" />
+    <TextInput aver="quepasa" type="password" />
     <Label> Error input </Label>
-    <Input status="status.ERROR" />
+    <TextInput :status="errorStatus" />
     <Label> Warning input </Label>
-    <Input status="status.WARNING" />
+    <TextInput :status="warningStatus" />
+    <Label> Success input </Label>
+    <TextInput :status="successStatus" />
   </div>
 </template>
 
 <script>
-import Input from '@/components/atoms/input/Input';
+import TextInput from '@/components/atoms/textinput/TextInput';
 import Label from '@/components/atoms/label/Label';
 import { STATUS } from '../constants/inputStatus'
 
 export default {
-  components: { Input, Label },
+  components: { TextInput, Label },
   data: function () {
     return {
-      theme1: {
-        color: 'green',
-        fontFamily: `'Laila', serif`,
-        fontSize:'4em',
-      },
-      theme2: {
-        textAlign: 'right',
-        padding: '50px',
-      },
-      tupi: {
-        color: 'red',
-        marginTop: '50px',
-      },
-      status: STATUS,
+      warningStatus: STATUS.WARNING,
+      errorStatus: STATUS.ERROR,
+      successStatus: STATUS.SUCCESS,
     }
-  }
+  },
 }
 </script>
 
