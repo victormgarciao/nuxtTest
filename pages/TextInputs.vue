@@ -1,17 +1,17 @@
 <template>
   <div class="inputsDisplay">
     <Label> Default text input </Label>
-    <TextInput />
+    <TextInput :theme="theme()" />
     <Label> Input with placeholder </Label>
-    <TextInput placeholder="tupi tupi"/>
+    <TextInput :theme="theme()" placeholder="tupi tupi"/>
     <Label> Password input </Label>
-    <TextInput aver="quepasa" type="password" />
+    <TextInput :theme="theme()" aver="quepasa" type="password" />
     <Label> Error input </Label>
-    <TextInput :status="errorStatus" />
+    <TextInput :theme="theme()" :status="errorStatus" />
     <Label> Warning input </Label>
-    <TextInput :status="warningStatus" />
+    <TextInput :theme="theme()" :status="warningStatus" />
     <Label> Success input </Label>
-    <TextInput :status="successStatus" />
+    <TextInput :theme="theme()" :status="successStatus" />
   </div>
 </template>
 
@@ -19,6 +19,7 @@
 import TextInput from '@/components/atoms/textinput/TextInput';
 import Label from '@/components/atoms/label/Label';
 import { STATUS } from '../constants/inputStatus'
+import { theme } from '../themes/testTheme';
 
 export default {
   components: { TextInput, Label },
@@ -27,6 +28,7 @@ export default {
       warningStatus: STATUS.WARNING,
       errorStatus: STATUS.ERROR,
       successStatus: STATUS.SUCCESS,
+      theme,
     }
   },
 }

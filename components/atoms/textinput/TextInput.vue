@@ -14,7 +14,7 @@ import { STATUS } from '../../../constants/inputStatus'
 
 export default {
   props: {
-    customTheme: {
+    theme: {
       type: Object,
       default: () => {},
     },
@@ -56,12 +56,16 @@ export default {
   },
   computed: {
     style () {
+
+      const palette = this.theme.palette;
+
       const inputStyles = {
-        color: '#333',
+        color: palette.grey03,
         padding: '10px',
         border: 'none',
         borderRadius: '10px',
-        border: 'solid 1px #ccc',
+        border: 'solid 1px',
+        borderColor: palette.grey09,
         fontFamily: 'inherit',
         fontSize:'1em',
         width: '100%',
@@ -71,7 +75,6 @@ export default {
 
       const defaultStyle = {
         ...inputStyles,
-        ...this.customTheme,
         ...this.customStyles,
       };
 
@@ -81,17 +84,20 @@ export default {
 
       const defaultFocusStyle = {
         outline: 0,
-        boxShadow: '0 0 5px #aaa',
+        boxShadow: `0 0 5px ${palette.grey09}`,
       };
 
       const defaultErrorStyle = {
-        border: '2px solid red',
+        border: '2px solid',
+        borderColor: palette.red01,
       };
       const defaultWarningStyle = {
-        border: '2px solid orange',
+        border: '2px solid',
+        borderColor: palette.yellow01,
       };
       const defaultSuccessStyle = {
-        border: '2px solid green',
+        border: '2px solid',
+        borderColor: palette.green01,
       };
 
       const hoverStyle = {
