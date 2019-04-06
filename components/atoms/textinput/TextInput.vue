@@ -49,7 +49,6 @@ export default {
         },
     },
     data: function() {
-        // https://stackoverflow.com/questions/42872002/in-vue-js-component-how-to-use-props-in-css
         return {
             isHover: false,
             isFocus: false,
