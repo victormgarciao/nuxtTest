@@ -1,42 +1,46 @@
 <template>
-  <h1
-    class="header1"
-    :style="theme"
-  >
-    <slot></slot>
-  </h1>
+    <h1
+        class="header1"
+        :style="style"
+    >
+        <slot></slot>
+    </h1>
 </template>
 
 <script>
 export default {
-  props: {
-    customTheme: {
-      type: Object,
-      default: () => {},
+    props: {
+        theme: {
+            type: Object,
+            default: () => {},
+        },
+        customStyles: {
+            type: Object,
+            default: () => {},
+        },
     },
-    customStyles: {
-      type: Object,
-      default: () => {},
-    },
-  },
-  data: function () {
-    const defaultStyles = {
-      color: '#333',
-      textAlign: 'center',
-      padding: '20px',
-      fontFamily: 'inherit',
-      fontSize:'3em',
-    };
+    computed: {
+        style() {
+            const palette = this.theme.palette;
+            const typography = this.theme.typography;
 
-    return {
-      theme : {
-        ...defaultStyles,
-        ...this.customTheme,
-        ...this.customStyles,
-      }
-    };
-  },
-}
+            const defaultStyles = {
+                fontFamily: typography.content,
+                fontSize: '3em',
+                color: palette.grey03,
+                textAlign: 'center',
+                padding: '20px',
+            };
+
+            const renderedStyles = {
+                ...defaultStyles,
+                ...this.customStyles,
+            };
+
+            return renderedStyles;
+        },
+    },
+};
 </script>
 
 
