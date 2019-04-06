@@ -1,7 +1,7 @@
 <template>
     <h1
         class="header1"
-        :style="theme"
+        :style="style"
     >
         <slot></slot>
     </h1>
@@ -10,7 +10,7 @@
 <script>
 export default {
     props: {
-        customTheme: {
+        theme: {
             type: Object,
             default: () => {},
         },
@@ -19,22 +19,26 @@ export default {
             default: () => {},
         },
     },
-    data: function() {
-        const defaultStyles = {
-            color: '#333',
-            textAlign: 'center',
-            padding: '20px',
-            fontFamily: 'inherit',
-            fontSize: '3em',
-        };
+    computed: {
+        style() {
+            const palette = this.theme.palette;
+            const typography = this.theme.typography;
 
-        return {
-            theme: {
+            const defaultStyles = {
+                fontFamily: typography.content,
+                fontSize: '3em',
+                color: palette.grey03,
+                textAlign: 'center',
+                padding: '20px',
+            };
+
+            const renderedStyles = {
                 ...defaultStyles,
-                ...this.customTheme,
                 ...this.customStyles,
-            },
-        };
+            };
+
+            return renderedStyles;
+        },
     },
 };
 </script>

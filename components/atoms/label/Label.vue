@@ -1,7 +1,7 @@
 <template>
     <label
         class="label"
-        :style="theme"
+        :style="style"
     >
         <slot></slot>
     </label>
@@ -10,7 +10,7 @@
 <script>
 export default {
     props: {
-        customTheme: {
+        theme: {
             type: Object,
             default: () => {},
         },
@@ -19,24 +19,28 @@ export default {
             default: () => {},
         },
     },
-    data: function() {
-        const defaultStyles = {
-            color: '#333',
-            textAlign: 'left',
-            padding: '10px',
-            fontFamily: 'inherit',
-            fontSize: '1em',
-            fontWeight: 'bold',
-            width: '100%',
-        };
+    computed: {
+        style() {
+            const palette = this.theme.palette;
+            const typography = this.theme.typography;
 
-        return {
-            theme: {
+            const defaultStyles = {
+                fontFamily: typography.content,
+                fontSize: '1em',
+                fontWeight: 'bold',
+                textAlign: 'left',
+                color: palette.grey03,
+                padding: '10px',
+                width: '100%',
+            };
+
+            const renderedStyles = {
                 ...defaultStyles,
-                ...this.customTheme,
                 ...this.customStyles,
-            },
-        };
+            };
+
+            return renderedStyles;
+        },
     },
 };
 </script>

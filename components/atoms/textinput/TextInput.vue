@@ -10,76 +10,77 @@
 </template>
 
 <script>
-import { STATUS } from "../../../constants/inputStatus";
-import { CURVE } from "../../../constants/theme";
+import { STATUS } from '../../../constants/inputStatus';
+import { CURVE } from '../../../constants/theme';
 
 export default {
     props: {
         theme: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customStyles: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customHoverStyle: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customFocusStyle: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customErrorStyle: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customWarningStyle: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         customSuccessStyle: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         status: {
             type: String,
-            default: () => STATUS.DEFAULT
-        }
+            default: () => STATUS.DEFAULT,
+        },
     },
     data: function() {
         // https://stackoverflow.com/questions/42872002/in-vue-js-component-how-to-use-props-in-css
         return {
             isHover: false,
-            isFocus: false
+            isFocus: false,
         };
     },
     computed: {
         style() {
             const palette = this.theme.palette;
             const curvature = this.theme.curvature;
+            const typography = this.theme.typography;
 
             const cornerStyle = this.getBorderRadius(curvature);
 
             const inputStyles = {
+                fontFamily: typography.content,
+                fontSize: '1em',
                 color: palette.grey03,
-                padding: "10px",
-                border: "none",
-                border: "solid 1px",
+                padding: '10px',
+                border: 'none',
+                border: 'solid 1px',
                 borderColor: palette.grey09,
-                fontFamily: "inherit",
-                fontSize: "1em",
-                width: "100%",
-                boxSizing: "border-box",
-                cursor: "default",
+                width: '100%',
+                boxSizing: 'border-box',
+                cursor: 'default',
 
-                ...cornerStyle
+                ...cornerStyle,
             };
 
             const defaultStyle = {
                 ...inputStyles,
-                ...this.customStyles
+                ...this.customStyles,
             };
 
             const defaultHoverStyle = {
@@ -88,45 +89,45 @@ export default {
 
             const defaultFocusStyle = {
                 outline: 0,
-                boxShadow: `0 0 5px ${palette.grey09}`
+                boxShadow: `0 0 5px ${palette.grey09}`,
             };
 
             const defaultErrorStyle = {
-                border: "2px solid",
-                borderColor: palette.red01
+                border: '2px solid',
+                borderColor: palette.red01,
             };
             const defaultWarningStyle = {
-                border: "2px solid",
-                borderColor: palette.yellow01
+                border: '2px solid',
+                borderColor: palette.yellow01,
             };
             const defaultSuccessStyle = {
-                border: "2px solid",
-                borderColor: palette.green01
+                border: '2px solid',
+                borderColor: palette.green01,
             };
 
             const hoverStyle = {
                 ...defaultHoverStyle,
-                ...this.customHoverStyle
+                ...this.customHoverStyle,
             };
 
             const focusStyle = {
                 ...defaultFocusStyle,
-                ...this.customFocusStyle
+                ...this.customFocusStyle,
             };
 
             const errorStyle = {
                 ...defaultErrorStyle,
-                ...this.customErrorStyle
+                ...this.customErrorStyle,
             };
 
             const warningStyle = {
                 ...defaultWarningStyle,
-                ...this.customWarningStyle
+                ...this.customWarningStyle,
             };
 
             const successStyle = {
                 ...defaultSuccessStyle,
-                ...this.customSuccessStyle
+                ...this.customSuccessStyle,
             };
 
             const renderedStyles = {
@@ -135,11 +136,11 @@ export default {
                 ...(this.isHover === true ? hoverStyle : {}),
                 ...(this.status === STATUS.WARNING ? warningStyle : {}),
                 ...(this.status === STATUS.ERROR ? errorStyle : {}),
-                ...(this.status === STATUS.SUCCESS ? successStyle : {})
+                ...(this.status === STATUS.SUCCESS ? successStyle : {}),
             };
 
             return renderedStyles;
-        }
+        },
     },
     methods: {
         changeHoverState() {
@@ -150,13 +151,13 @@ export default {
         },
         getBorderRadius(curvature) {
             const curvatureStyle = {
-                [CURVE.OFF]: { borderRadius: "10px" },
-                [CURVE.WEAK]: { borderRadius: "10px" },
-                [CURVE.STRONG]: { borderRadius: "20px" }
+                [CURVE.OFF]: { borderRadius: '10px' },
+                [CURVE.WEAK]: { borderRadius: '10px' },
+                [CURVE.STRONG]: { borderRadius: '20px' },
             };
 
             return curvatureStyle[curvature];
-        }
-    }
+        },
+    },
 };
 </script>

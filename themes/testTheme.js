@@ -35,11 +35,8 @@ export const theme = () => ({
     },
 
     typography: {
-        content: "Arial, sans-serif",
-        display: "Arial Black, sans-serif",
-
-        contentURL: "https://fonts.googleapis.com/css?family=Open+Sans",
-        displayURL: "https://fonts.googleapis.com/css?family=Raleway"
+        content: "Open Sans, sans-serif",
+        display: "Open Sans Black, sans-serif",
     },
 
     /* Curvature

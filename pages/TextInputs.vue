@@ -1,28 +1,33 @@
 <template>
     <div class='inputsDisplay'>
-        <Label>Default text input</Label>
+        <Label :theme='theme()'>Default text input</Label>
         <TextInput :theme='theme()'/>
-        <Label>Input with placeholder</Label>
+
+        <Label :theme='theme()'>Input with placeholder</Label>
         <TextInput
             :theme='theme()'
             placeholder='tupi tupi'
         />
-        <Label>Password input</Label>
+
+        <Label :theme='theme()'>Password input</Label>
         <TextInput
             :theme='theme()'
             aver='quepasa'
         />
-        <Label>Error input</Label>
+
+        <Label :theme='theme()'>Error input</Label>
         <TextInput
             :status='errorStatus'
             :theme='theme()'
         />
-        <Label>Warning input</Label>
+
+        <Label :theme='theme()'>Warning input</Label>
         <TextInput
             :status='warningStatus'
             :theme='theme()'
         />
-        <Label>Success input</Label>
+        
+        <Label :theme='theme()'>Success input</Label>
         <TextInput
             :status='successStatus'
             :theme='theme()'
