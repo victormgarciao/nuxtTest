@@ -82,51 +82,31 @@ export default {
                 ...this.customStyles,
             };
 
-            const defaultHoverStyle = {
-                // background: '#eee',
-            };
-
-            const defaultFocusStyle = {
-                outline: 0,
-                boxShadow: `0 0 5px ${palette.grey09}`,
-            };
-
-            const defaultErrorStyle = {
-                border: '2px solid',
-                borderColor: palette.red01,
-            };
-            const defaultWarningStyle = {
-                border: '2px solid',
-                borderColor: palette.yellow01,
-            };
-            const defaultSuccessStyle = {
-                border: '2px solid',
-                borderColor: palette.green01,
-            };
-
             const hoverStyle = {
-                ...defaultHoverStyle,
+                // background: '#eee',
                 ...this.customHoverStyle,
             };
 
             const focusStyle = {
-                ...defaultFocusStyle,
+                outline: 0,
+                boxShadow: `0 0 5px ${palette.grey09}`,
                 ...this.customFocusStyle,
             };
 
             const errorStyle = {
-                ...defaultErrorStyle,
+                border: '2px solid',
+                borderColor: palette.red01,
                 ...this.customErrorStyle,
             };
-
             const warningStyle = {
-                ...defaultWarningStyle,
-                ...this.customWarningStyle,
+                border: '2px solid',
+                borderColor: palette.yellow01,
+                ...this.warningStyle,
             };
-
             const successStyle = {
-                ...defaultSuccessStyle,
-                ...this.customSuccessStyle,
+                border: '2px solid',
+                borderColor: palette.green01,
+                ...this.successStyle,
             };
 
             const renderedStyles = {
@@ -150,7 +130,7 @@ export default {
         },
         getBorderRadius(curvature) {
             const curvatureStyle = {
-                [CURVE.OFF]: { borderRadius: '10px' },
+                [CURVE.OFF]: { borderRadius: 0 },
                 [CURVE.WEAK]: { borderRadius: '10px' },
                 [CURVE.STRONG]: { borderRadius: '20px' },
             };

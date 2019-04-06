@@ -9,7 +9,13 @@ export const theme = () => ({
         secondary: "#0091d3",
         tertiary: "#0091d3",
 
+        detrimental: "#d94040",
+        positive: "#7fa800",
+
         contrast: "#fff",
+
+        white: "#fff",
+        black: "000",
 
         grey01: "#1a1a1a",
         grey02: "#282828",
