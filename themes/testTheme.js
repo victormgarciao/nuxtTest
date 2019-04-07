@@ -6,8 +6,8 @@ export const theme = () => ({
         headerForeground: "#0091d3",
 
         primary: "#0091d3",
-        secondary: "#0091d3",
-        tertiary: "#0091d3",
+        secondary: "#E91E63",
+        tertiary: "#009688",
 
         detrimental: "#d94040",
         positive: "#7fa800",
