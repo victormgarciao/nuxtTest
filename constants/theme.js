@@ -35,8 +35,13 @@ export const THEME_KEYS = {
         GREEN01: '--green01-color',
         GREEN02: '--green02-color',
     },
+
     TYPOGRAPHY: {
         CONTENT: '--content-typography',
         DISPLAY: '--display-typography',
     },
+
+    TRANSITION: {
+        OPACITY: '--opacity-transition'
+    }
 };

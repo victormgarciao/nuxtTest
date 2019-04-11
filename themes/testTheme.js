@@ -36,4 +36,8 @@ export const THEME = [
     // Typography
     { key: THEME_KEYS.TYPOGRAPHY.CONTENT, value: 'Open Sans, sans-serif' },
     { key: THEME_KEYS.TYPOGRAPHY.DISPLAY, value: 'Open Sans Black, sans-serif' },
+    
+    // Transitions
+    { key: THEME_KEYS.TRANSITION.OPACITY, value: 'opacity 0.2s ease-in-out' },
+
 ];

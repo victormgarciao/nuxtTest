@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClasses" @click="onClick">
+    <button :class="buttonClasses" @click.stop="onClick">
         <slot></slot>
     </button>
 </template>
@@ -51,7 +51,7 @@ export default {
         border-width: 1;
         margin: 0;
         cursor: pointer;
-        transition: opacity 0.2s ease-in-out;
+        transition: var(--opacity-transition);
         width: 100%;
         user-select: none;
     }
