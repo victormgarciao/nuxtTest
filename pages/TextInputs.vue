@@ -1,37 +1,22 @@
 <template>
     <div class='inputsDisplay'>
-        <Label :theme='theme()'>Default text input</Label>
-        <TextInput :theme='theme()'/>
+        <Label>Default text input</Label>
+        <TextInput />
 
-        <Label :theme='theme()'>Input with placeholder</Label>
-        <TextInput
-            :theme='theme()'
-            placeholder='tupi tupi'
-        />
+        <Label>Input with placeholder</Label>
+        <TextInput placeholder='tupi tupi' />
 
-        <Label :theme='theme()'>Password input</Label>
-        <TextInput
-            :theme='theme()'
-            aver='quepasa'
-        />
+        <Label>Password input</Label>
+        <TextInput aver='quepasa' />
 
-        <Label :theme='theme()'>Error input</Label>
-        <TextInput
-            :status='errorStatus'
-            :theme='theme()'
-        />
+        <Label>Error input</Label>
+        <TextInput :status='errorStatus' />
 
-        <Label :theme='theme()'>Warning input</Label>
-        <TextInput
-            :status='warningStatus'
-            :theme='theme()'
-        />
+        <Label>Warning input</Label>
+        <TextInput :status='warningStatus' />
         
-        <Label :theme='theme()'>Success input</Label>
-        <TextInput
-            :status='successStatus'
-            :theme='theme()'
-        />
+        <Label>Success input</Label>
+        <TextInput :status='successStatus' />
     </div>
 </template>
 
@@ -39,7 +24,6 @@
 import TextInput from '@/components/atoms/textinput/TextInput';
 import Label from '@/components/atoms/label/Label';
 import { STATUS } from '../constants/inputStatus';
-import { theme } from '../themes/testTheme';
 
 export default {
     components: { TextInput, Label },
@@ -48,7 +32,6 @@ export default {
             warningStatus: STATUS.WARNING,
             errorStatus: STATUS.ERROR,
             successStatus: STATUS.SUCCESS,
-            theme,
         };
     },
 };

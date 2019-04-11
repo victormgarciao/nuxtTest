@@ -1,26 +1,19 @@
 <template>
     <div class='labelDisplay'>
-        <Label 
-            :customStyles='customStyles1'
-            :theme="theme()"
-        >
-            I am going to display the base components here
+        <Label>Default Label</Label>
+
+        <Label :style='customStyles1'>
+            Custom styles 1
         </Label>
 
-        <Label
-            :customStyles='customStyles2'
-            :theme="theme()"
-        >
-            Tupitupi
+        <Label :style='customStyles2'>
+            Custom styles 2
         </Label>
-        
-        <Label :theme="theme()">Default Label</Label>
     </div>
 </template>
 
 <script>
 import Label from '@/components/atoms/label/Label';
-import { theme } from '../themes/testTheme';
 
 export default {
     components: { Label },
@@ -37,7 +30,6 @@ export default {
                 color: 'red',
                 marginTop: '30px',
             },
-            theme,
         };
     },
 };

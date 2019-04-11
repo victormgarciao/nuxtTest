@@ -1,23 +1,19 @@
 <template>
     <div>
-        <Header1 
-            :customStyles="customStyles1"
-            :theme="theme()"
-        >
-            I am going to display the base components here
+        <Header1 >
+            Default header
         </Header1>
-        <Header1
-            :customStyles="customStyles2"
-            :theme="theme()"
-        >
-            Tupitupi
+        <Header1 :style="customStyles1">
+            Custom styles 1
+        </Header1>
+        <Header1 :style="customStyles2">
+            Custom styles 2
         </Header1>
     </div>
 </template>
 
 <script>
 import Header1 from '@/components/atoms/headers/Header1';
-import { theme } from '../themes/testTheme';
 
 export default {
     components: { Header1 },
@@ -34,7 +30,6 @@ export default {
                 color: 'red',
                 marginTop: '50px',
             },
-            theme,
         };
     },
 };

@@ -1,76 +1,52 @@
 <template>
     <div class='labelDisplay'>
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button1click"
-            >
+            <v-button :onClick="button1click">
                 Default Button
             </v-button>
         </div>
+
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button1click"
-                :isDisabled="true"
-            >
+            <v-button :onClick="button1click" disabled>
                 Disabled Button
             </v-button>
         </div>
+
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button2click"
-                :kind="Kind.SECONDARY"
-            >
-                Default Button
+            <v-button :onClick="button2click" :kind="KIND.SECONDARY">
+                Secondary Button
             </v-button>
         </div>
+
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button3click"
-                :kind="Kind.TERTIARY"
-            >
-                Default Button
+            <v-button :onClick="button3click" :kind="KIND.TERTIARY">
+                Tertiary Button
             </v-button>
         </div>
+
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button4click"
-                :kind="Kind.DETRIMENTAL"
-            >
-                Default Button
+            <v-button :onClick="button4click" :kind="KIND.DETRIMENTAL">
+                Detrimental Button
             </v-button>
         </div>
+
         <div class='labelDisplay'>
-            <v-button
-                :theme="theme()"
-                :onClick="button5click"
-                :kind="Kind.POSITIVE"
-            >
-                Default Button
+            <v-button :onClick="button5click" :kind="KIND.POSITIVE">
+                Positive Button
             </v-button>
         </div>
     </div>
 </template>
 
 <script>
-import { theme } from '../themes/testTheme';
-import Button, { Kind } from '../components/atoms/button/Button';
+import Button from '../components/atoms/button/Button';
+import { KIND } from '../services/styles.service';
 
 export default {
     components: { 'v-button': Button },
     data: function() {
         return {
-            customStyles1: {
-                color: 'green',
-                fontFamily: `'Laila', serif`,
-                fontSize: '2em',
-            },
-            theme,
-            Kind,
+            KIND,
         };
     },
     methods: {
@@ -94,11 +70,9 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Laila');
-
-.labelDisplay {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-}
+    .labelDisplay {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
 </style>

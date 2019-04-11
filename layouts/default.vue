@@ -4,6 +4,18 @@
   </div>
 </template>
 
+<script>
+import { THEME, curvature } from '../themes/testTheme';
+import { styleService } from '../services/styles.service';
+
+export default {
+    created: function() {
+        styleService.initTheme(THEME, curvature);
+    },
+};
+</script>
+
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 

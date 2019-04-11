@@ -1,47 +1,15 @@
 <template>
-    <h1
-        class="header1"
-        :style="style"
-    >
+    <h1 class="header1">
         <slot></slot>
     </h1>
 </template>
 
-<script>
-export default {
-    props: {
-        theme: {
-            type: Object,
-            default: () => {},
-        },
-        customStyles: {
-            type: Object,
-            default: () => {},
-        },
-    },
-    computed: {
-        style() {
-            const palette = this.theme.palette;
-            const typography = this.theme.typography;
-
-            const defaultStyles = {
-                fontFamily: typography.content,
-                fontSize: '3em',
-                color: palette.grey03,
-                textAlign: 'center',
-                padding: '20px',
-            };
-
-            const renderedStyles = {
-                ...defaultStyles,
-                ...this.customStyles,
-            };
-
-            return renderedStyles;
-        },
-    },
-};
-</script>
-
-
-
+<style scoped>
+    .header1 {
+        font-family: var(--content-typography);
+        font-size: 3em;
+        color: var(--grey03-color);
+        text-align: center;
+        padding: 20px;
+    }
+</style>
